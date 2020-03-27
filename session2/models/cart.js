@@ -1,10 +1,17 @@
 const { Schema, model } = require("mongoose");
 
+const productQuantity = new Schema({
+  quantity: {
+    default: 0,
+    type: Number
+  }
+});
+
 const cartSchema = new Schema(
   {
     products: {
       required: true,
-      type: Array
+      type: [productQuantity]
     },
     userId: {
       required: true,
